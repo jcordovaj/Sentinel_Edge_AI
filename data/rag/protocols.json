@@ -1,0 +1,6 @@
+{
+    "protocol_id": "CH-SEC-09",
+    "trigger_condition": "weapon_detected_offline",
+    "legal_base": "Art. 10 No. 4 Código Penal (Legítima Defensa)",
+    "voice_instruction": "Peligro inminente. Use cobertura. Advierta identificación sonora clara antes de actuar."
+}
