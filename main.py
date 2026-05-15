@@ -5,12 +5,12 @@ import json
 import time
 from dotenv import load_dotenv
 
-# Asegurar que el directorio raíz del repositorio esté en sys.path
+# Verifica que el directorio raíz del repositorio esté en sys.path
 repo_root = os.path.dirname(os.path.abspath(__file__))
 if repo_root not in sys.path:
     sys.path.insert(0, repo_root)
 
-# Importaciones de nuestros módulos
+# Importación de módulos
 from src.core.daemon import NetworkDaemon
 from src.core.crypto import SentinelCrypto
 from src.inference.yolo_engine import SentinelVision
@@ -28,8 +28,8 @@ def sentinel_boot():
     # Simulador de Bodycam
     cap    = cv2.VideoCapture(0)
     
-    print("--- SENTINEL EDGE ONLINE ---")
-    audio.whisper("Sistema Sentinel iniciado. Modo patrullaje activo.")
+    print("--- SentinelEdge ONLINE ---")
+    audio.whisper("Sistema SentinelEdge iniciado. Modo patrullaje activo.")
 
     try:
         while cap.isOpened():
@@ -55,7 +55,7 @@ def sentinel_boot():
                     event = crypto.sign_event("AMENAZA_DETECTADA", frame.tobytes())
                     
                     # Acción Táctica (Audio)
-                    audio.whisper("Amenaza detectada. Inicie protocolo defensivo. Desenfunde autorizado.")
+                    audio.whisper("Amenaza letal detectada. Inicie protocolo RUF defensivo. Desenfunde autorizado.")
                     
                     # Guardado Local Inmutable
                     with open(f"data/secure_vault/alert_{int(time.time())}.json", "w") as f:
