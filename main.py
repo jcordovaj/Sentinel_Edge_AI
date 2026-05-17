@@ -10,7 +10,7 @@ repo_root = os.path.dirname(os.path.abspath(__file__))
 if repo_root not in sys.path:
     sys.path.insert(0, repo_root)
 
-# Importación de módulos
+# Importamos los módulos
 from src.core.daemon import NetworkDaemon
 from src.core.crypto import SentinelCrypto
 from src.inference.yolo_engine import SentinelVision
@@ -19,7 +19,7 @@ from src.utils.audio_tactical import SentinelAudio
 load_dotenv()
 
 def sentinel_boot():
-    # Inicialización de hardware y software
+    # Inicialización del hw y sw
     daemon = NetworkDaemon()
     crypto = SentinelCrypto()
     vision = SentinelVision()  # Carga yolov8n.pt
@@ -27,6 +27,9 @@ def sentinel_boot():
     
     # Simulador de Bodycam
     cap    = cv2.VideoCapture(0)
+    
+    # Nota desarrollo: Validar si usar cel como router durante las pruebas, la idea es la cámara para video y el cel
+    # para la inteligencia, pero en prueba de concepto sería ambas.
     
     print("--- SentinelEdge ONLINE ---")
     audio.whisper("Sistema SentinelEdge iniciado. Modo patrullaje activo.")
@@ -62,7 +65,7 @@ def sentinel_boot():
                         json.dump(event, f)
 
             # 5. Interfaz de desarrollo
-            cv2.imshow('Sentinel-Edge Viewport', frame)
+            cv2.imshow('SentinelEdge Viewport', frame)
             if cv2.waitKey(1) & 0xFF == ord('q'): break
 
     finally:
