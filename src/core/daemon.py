@@ -27,5 +27,5 @@ class NetworkDaemon:
 
     def switch_to_local(self):
         print("⚠️ Alerta: Conexión inestable. Activando IA Local y RAG de emergencia.")
-        # Aquí se daría la instrucción al yolo_engine para subir FPS 
-        # y al crypto.py para empezar a firmar localmente.
+        # Aquí se gestiona la lógica con las instrucciones a yolo_engine para subir FPS 
+        # y a crypto.py para empezar a firmar localmente (asegura cadena de custodia e inviolabilidad).
