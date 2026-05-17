@@ -4,15 +4,15 @@ import threading
 
 class SentinelAudio:
     def __init__(self):
-        # Inicializar el motor de síntesis de voz (Offline)
+        # Inicializar el motor de voz (Offline)
         self.engine = pyttsx3.init()
-        self.engine.setProperty('rate', 150) # Velocidad de habla humana normal
+        self.engine.setProperty('rate', 150) # Aquí podemos jugar con la velocidad de la voz, por default, velocidad normal.
         self.recognizer = sr.Recognizer()
         
     def whisper(self, text):
-        """Envía una instrucción auditiva al guardia."""
+        """Envía una instrucción auditiva al agente"""
         print(f"🎙️ Whispering: {text}")
-        # Ejecutar en un hilo separado para no bloquear el procesamiento de video
+        # Se ejecuta en un hilo separado para no bloquear el procesamiento de video
         threading.Thread(target=self._say, args=(text,)).start()
 
     def _say(self, text):
