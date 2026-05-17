@@ -7,8 +7,8 @@ from datetime import datetime
 class SentinelCrypto:
     def __init__(self):
         # En producción, la llave se recupera de un KeyStore seguro
-        self.key = os.getenv("LOCAL_ENCRYPTION_KEY", Fernet.generate_key())
-        self.cipher = Fernet(self.key)
+        self.key       = os.getenv("LOCAL_ENCRYPTION_KEY", Fernet.generate_key())
+        self.cipher    = Fernet(self.key)
         self.device_id = os.getenv("DEVICE_ID", "DEV-001")
 
     def generate_evidence_hash(self, frame_data, metadata: dict):
@@ -28,8 +28,8 @@ class SentinelCrypto:
         """
         timestamp = datetime.now().isoformat()
         metadata = {
-            "device_id": self.device_id,
-            "timestamp": timestamp,
+            "device_id" : self.device_id,
+            "timestamp" : timestamp,
             "event_type": event_type
         }
         
@@ -40,3 +40,5 @@ class SentinelCrypto:
             "hash": event_hash,
             "signature_version": "1.0"
         }
+        
+        # Nota: Agregar hash
